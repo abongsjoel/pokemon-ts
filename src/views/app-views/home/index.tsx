@@ -1,6 +1,9 @@
 import React from "react";
+
+import { Space } from "antd";
 import { gql } from "@apollo/client";
-import { useGetFuzzyPokemonQuery } from "generated/graphql";
+import { Pokemon, useGetFuzzyPokemonQuery } from "generated/graphql";
+import PokeCard from "components/pokemon/PorkCard";
 
 export const POKES = gql`
   query GetFuzzyPokemon($pokemon: String!, $take: Int) {
@@ -30,7 +33,15 @@ const Home = () => {
   if (error) return `Error! ${error.message}`;
   console.log({ data });
 
-  return <div>hello</div>;
+  return (
+    <Space wrap size="large">
+      {data?.getFuzzyPokemon.map((poke, indx) => (
+        <div>
+          <PokeCard poke={poke as Pokemon} key={poke.key} id={indx + 1} />
+        </div>
+      ))}
+    </Space>
+  );
 };
 
 export default Home;
