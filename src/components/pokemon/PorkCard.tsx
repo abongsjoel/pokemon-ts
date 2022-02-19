@@ -72,7 +72,7 @@ const PokeCard = ({ poke, id }: Poke) => {
 
   return (
     <Card
-      hoverable={true}
+      hoverable
       bordered={false}
       style={{ width: 240 }}
       cover={
