@@ -8,15 +8,10 @@ import PokeCard from "components/pokemon/PorkCard";
 export const POKES = gql`
   query GetFuzzyPokemon($pokemon: String!, $take: Int) {
     getFuzzyPokemon(pokemon: $pokemon, take: $take) {
-      species
-      color
-      backSprite
-      types
       key
-      shinySprite
-      shinyBackSprite
+      species
       sprite
-      weight
+      types
     }
   }
 `;
@@ -31,7 +26,6 @@ const Home = () => {
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
-  console.log({ data });
 
   return (
     <Space wrap size="large">

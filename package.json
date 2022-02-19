@@ -96,6 +96,7 @@
     "@graphql-codegen/typescript-operations": "2.3.2",
     "@graphql-codegen/typescript-react-apollo": "3.2.8",
     "@types/lodash": "^4.14.178",
+    "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^9.8.4",
     "gulp": "^4.0.2",
     "gulp-csso": "^4.0.1",
