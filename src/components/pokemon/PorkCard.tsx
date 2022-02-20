@@ -2,14 +2,21 @@ import React from "react";
 
 import { Card, Space, Tag } from "antd";
 import { capitalize } from "lodash";
+import { useHistory } from "react-router-dom";
 import { Pokemon } from "generated/graphql";
+import { APP_PREFIX_PATH } from "configs/AppConfig";
 
 const { Meta } = Card;
 
-interface Poke {
-  poke: Pokemon;
-  id: number;
-}
+const zeropad = (val: string) => {
+  if (val.length === 1) {
+    return `00${val}`;
+  }
+  if (val.length === 2) {
+    return `0${val}`;
+  }
+  return val;
+};
 
 const _colors = (type: string) => {
   switch (type) {
@@ -42,32 +49,18 @@ const _colors = (type: string) => {
   }
 };
 
-// enum _colors {
-//   Water = "#2db7f5",
-//   Flying = "#87d068",
-//   Fairy = "#87d068",
-//   Bug = "#2db7f5",
-//   Ghost = "#f50",
-//   Ice = "#f50672",
-//   Rock = "#808487",
-//   Steel = "#71797E",
-//   Dragon = "#6AFB92",
-//   Fighting = "#13294B",
-//   Poison = "#40fd14",
-//   Psychic = "#615981",
-//   default = "default",
-// }
+interface Poke {
+  poke: Pokemon;
+  id: number;
+}
 
 const PokeCard = ({ poke, id }: Poke) => {
   console.log({ poke, id });
-  const zeropad = (val: string) => {
-    if (val.length === 1) {
-      return `00${val}`;
-    }
-    if (val.length === 2) {
-      return `0${val}`;
-    }
-    return val;
+
+  const history = useHistory();
+
+  const _onCardClick = () => {
+    history.push(`${APP_PREFIX_PATH}/poke/${poke.key}`);
   };
 
   return (
@@ -75,6 +68,7 @@ const PokeCard = ({ poke, id }: Poke) => {
       hoverable
       bordered={false}
       style={{ width: 240 }}
+      onClick={_onCardClick}
       cover={
         <img alt={poke.species} src={poke.sprite} style={{ height: 200 }} />
       }

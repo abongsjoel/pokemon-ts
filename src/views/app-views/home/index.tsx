@@ -30,9 +30,7 @@ const Home = () => {
   return (
     <Space wrap size="large">
       {data?.getFuzzyPokemon.map((poke, indx) => (
-        <div>
-          <PokeCard poke={poke as Pokemon} key={poke.key} id={indx + 1} />
-        </div>
+        <PokeCard poke={poke as Pokemon} key={poke.key} id={indx + 1} />
       ))}
     </Space>
   );
