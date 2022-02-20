@@ -1,3 +1,65 @@
+# Pokemon
+
+> In this project I built a simple website that displays some pokemons in cards and the user can click on a pokemon to see more information about it.
+
+![screenshot](../main/screenshot.png)
+
+The site is built using Reactjs, Typescript, Apollo GraphQL, AntDesign and the Emilus - React Admin Template.
+
+The app opens with a login page. As of now, any credentials can login.
+
+## Live Demo
+
+- [Visit Page](https://vercel.com/abongsjoel/pokemon-ts)
+
+## Built With
+
+- React
+- TypeScript
+- Apollo GraphQL
+- AntDesign
+- Emilus - React Admin Template
+
+## Running the Application
+
+To run this application locally, after clonning it, run
+
+```
+yarn
+```
+
+yarn codegen
+
+```
+yarn start
+```
+
+## Author
+
+👤 **Chi A. Joel**
+
+- GitHub: [@abongsjoel](https://github.com/abongsjoel)
+- Twitter: [@thierryjoel10](https://twitter.com/ThierryJoel10)
+- LinkedIn: [Chi Abongwa Joel](https://www.linkedin.com/in/chi-abongwa-joel-b4285a97/)
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/abongsjoel/pokemon-ts/issues/new).
+
+## Acknowledgments
+
+- [Michel Kana](https://www.linkedin.com/in/michelkana/)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## License
+
+  <p>This project is <a href="../master/LICENSE">MIT</a> licensed.</p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
