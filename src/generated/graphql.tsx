@@ -3566,15 +3566,75 @@ export enum TypesEnum {
   Water = 'water'
 }
 
+export type GetPokemonQueryVariables = Exact<{
+  pokemon: PokemonEnum;
+}>;
+
+
+export type GetPokemonQuery = { __typename?: 'Query', getPokemon: { __typename?: 'Pokemon', height: number, types: Array<string>, weight: number, species: string, baseForme?: string | null, num: number, sprite: string, abilities: { __typename?: 'Abilities', first: string, hidden?: string | null, second?: string | null }, gender: { __typename?: 'Gender', female: string, male: string }, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }> } };
+
 export type GetFuzzyPokemonQueryVariables = Exact<{
   pokemon: Scalars['String'];
   take?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type GetFuzzyPokemonQuery = { __typename?: 'Query', getFuzzyPokemon: Array<{ __typename?: 'Pokemon', key: PokemonEnum, species: string, sprite: string, types: Array<string> }> };
+export type GetFuzzyPokemonQuery = { __typename?: 'Query', getFuzzyPokemon: Array<{ __typename?: 'Pokemon', key: PokemonEnum, species: string, sprite: string, types: Array<string>, num: number }> };
 
 
+export const GetPokemonDocument = gql`
+    query GetPokemon($pokemon: PokemonEnum!) {
+  getPokemon(pokemon: $pokemon) {
+    abilities {
+      first
+      hidden
+      second
+    }
+    gender {
+      female
+      male
+    }
+    height
+    types
+    weight
+    species
+    baseForme
+    num
+    sprite
+    flavorTexts {
+      flavor
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPokemonQuery__
+ *
+ * To run a query within a React component, call `useGetPokemonQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPokemonQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPokemonQuery({
+ *   variables: {
+ *      pokemon: // value for 'pokemon'
+ *   },
+ * });
+ */
+export function useGetPokemonQuery(baseOptions: Apollo.QueryHookOptions<GetPokemonQuery, GetPokemonQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPokemonQuery, GetPokemonQueryVariables>(GetPokemonDocument, options);
+      }
+export function useGetPokemonLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPokemonQuery, GetPokemonQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPokemonQuery, GetPokemonQueryVariables>(GetPokemonDocument, options);
+        }
+export type GetPokemonQueryHookResult = ReturnType<typeof useGetPokemonQuery>;
+export type GetPokemonLazyQueryHookResult = ReturnType<typeof useGetPokemonLazyQuery>;
+export type GetPokemonQueryResult = Apollo.QueryResult<GetPokemonQuery, GetPokemonQueryVariables>;
 export const GetFuzzyPokemonDocument = gql`
     query GetFuzzyPokemon($pokemon: String!, $take: Int) {
   getFuzzyPokemon(pokemon: $pokemon, take: $take) {
@@ -3582,6 +3642,7 @@ export const GetFuzzyPokemonDocument = gql`
     species
     sprite
     types
+    num
   }
 }
     `;

@@ -3,12 +3,13 @@ import React from "react";
 import { Card, Space, Tag } from "antd";
 import { capitalize } from "lodash";
 import { useHistory } from "react-router-dom";
+
 import { Pokemon } from "generated/graphql";
 import { APP_PREFIX_PATH } from "configs/AppConfig";
 
 const { Meta } = Card;
 
-const zeropad = (val: string) => {
+export const zeropad = (val: string) => {
   if (val.length === 1) {
     return `00${val}`;
   }
@@ -18,7 +19,7 @@ const zeropad = (val: string) => {
   return val;
 };
 
-const _colors = (type: string) => {
+export const _colors = (type: string) => {
   switch (type) {
     case "Water":
       return "#2db7f5";
@@ -55,8 +56,6 @@ interface Poke {
 }
 
 const PokeCard = ({ poke, id }: Poke) => {
-  console.log({ poke, id });
-
   const history = useHistory();
 
   const _onCardClick = () => {

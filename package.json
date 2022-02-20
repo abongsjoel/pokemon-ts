@@ -91,6 +91,7 @@
     ]
   },
   "devDependencies": {
+    "@ant-design/pro-card": "^1.18.32",
     "@graphql-codegen/cli": "2.6.2",
     "@graphql-codegen/typescript": "2.4.5",
     "@graphql-codegen/typescript-operations": "2.3.2",

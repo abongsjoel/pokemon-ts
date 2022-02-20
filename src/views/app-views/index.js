@@ -13,7 +13,7 @@ export const AppViews = () => {
           component={lazy(() => import(`./home`))}
         />
         <Route
-          path={`${APP_PREFIX_PATH}/poke/:id`}
+          path={`${APP_PREFIX_PATH}/poke/:pokemon`}
           component={lazy(() => import(`./home/Poke`))}
         />
         <Redirect from={`${APP_PREFIX_PATH}`} to={`${APP_PREFIX_PATH}/home`} />
