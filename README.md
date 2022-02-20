@@ -10,7 +10,7 @@ The app opens with a login page. As of now, any credentials can login.
 
 ## Live Demo
 
-- [Visit Page](https://vercel.com/abongsjoel/pokemon-ts)
+- [Visit Page](https://pokemon-ts.vercel.app/app/home)
 
 ## Built With
 
