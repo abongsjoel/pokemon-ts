@@ -27,9 +27,9 @@ To run this application locally, after clonning it, run
 ```
 yarn
 ```
-
+```
 yarn codegen
-
+```
 ```
 yarn start
 ```
