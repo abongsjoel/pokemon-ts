@@ -58,9 +58,9 @@ interface Poke {
 const PokeCard = ({ poke, id }: Poke) => {
   const history = useHistory();
 
-  const _onCardClick = () => {
+  const _onCardClick = React.useCallback(() => {
     history.push(`${APP_PREFIX_PATH}/poke/${poke.key}`);
-  };
+  }, [history, poke]);
 
   return (
     <Card

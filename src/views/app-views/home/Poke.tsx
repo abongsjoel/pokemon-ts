@@ -105,7 +105,7 @@ const Poke = (prop: RouteComponentProps) => {
           <Col xs={24}>
             <Title level={2}>Type</Title>
             <Space size="small">
-              {poke?.types.map((type: string) => (
+              {poke!.types.map((type: string) => (
                 <Tag color={_colors(type)}>{type}</Tag>
               ))}
             </Space>
